@@ -45,7 +45,7 @@ class MaterialManagementTestCase(unittest.TestCase):
         })
         self.assertEqual(response.status_code, 302)
         with self.app.app_context():
-            updated_material = db.session.get(Material, material_id)  # Используем session.get()
+            updated_material = db.session.get(Material, material_id)
             self.assertEqual(updated_material.name, 'Updated Material')
 
     def test_delete_material(self):
@@ -58,7 +58,7 @@ class MaterialManagementTestCase(unittest.TestCase):
         response = self.client.post(f'/delete/{material_id}')
         self.assertEqual(response.status_code, 302)
         with self.app.app_context():
-            deleted_material = db.session.get(Material, material_id)  # Используем session.get()
+            deleted_material = db.session.get(Material, material_id)
             self.assertIsNone(deleted_material)
 
 if __name__ == '__main__':
