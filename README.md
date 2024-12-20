@@ -6,3 +6,5 @@
 # установка зависимостей и запуск
 pip install -r requirements.txt
 flask run
+# проверка тестов
+python -m unittest test_app.py
